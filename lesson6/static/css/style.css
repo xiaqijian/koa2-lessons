@@ -1,0 +1,16 @@
+body {
+    background: #efefef;
+    padding: 20px;
+
+}
+
+.formbox {
+    width: 300px;
+    margin: auto;
+}
+.formbox .btn {
+    width: 100%;
+}
+.h2box{
+    text-align: center
+}
