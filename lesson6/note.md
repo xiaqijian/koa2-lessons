@@ -15,11 +15,14 @@
 - 登录判断是否注册过
 - 登录时的密码的正确
 
+本文代码地址：https://github.com/xiaqijian/koa2-lessons/tree/master/lesson6
+
 明天，我们将利用session实现登录状态判断
 
 今天的这篇是在之前的代码基础上添加的，我们就晒主要的代码
 
 1.编辑user.js
+--
 
 ```
 // db/user.js
@@ -239,3 +242,12 @@ node index.js
 
 
 本文结束，下次文章利用session对登录状态的判断
+
+本文代码地址：https://github.com/xiaqijian/koa2-lessons/tree/master/lesson6
+
+
+
+
+
+
+
