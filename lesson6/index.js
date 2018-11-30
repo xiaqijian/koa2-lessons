@@ -19,6 +19,8 @@ app.use(views(path.join(__dirname, './views'), {
     extension: 'ejs'
   }))
 
+
+
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods())
 

@@ -26,6 +26,23 @@ class Userdb {
        })
      })
   }
+queryEmail (em) {
+   return new Promise((resolve, reject) => {
+     MyModel.find({email: em}, (err, res) => {
+       if(err) {
+         reject(err)
+       }
+       const len = res.length
+       if(len >= 1){
+         // 存在
+         resolve(res)
+       }else {
+         // 不存在
+         resolve(null)
+       }
+     })
+   })
+}
 // 保存
   save (obj) {
      const m = new MyModel(obj)

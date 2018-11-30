@@ -33,9 +33,9 @@ login.get('/', async (ctx) => {
     })
 }).post('/', async (ctx) => {
     const data = ctx.request.body
-    let queryres = await User.query({email: data.email})
+    let queryres = await User.queryEmail(data.email)
     console.log(queryres)
-    if (queryres.length >= 1) {
+    if (queryres) {
         if(queryres[0].password === data.password) {
             ctx.body = {
                 'code': 1,
@@ -54,7 +54,7 @@ login.get('/', async (ctx) => {
         ctx.body = {
             'code': 0,
             'data': {},
-            'mesg': '没有改用户，去注册吧'
+            'mesg': '没有该用户，去注册吧'
         }
     }
 })
@@ -68,16 +68,15 @@ register.get('/', async (ctx) => {
     })
 }).post('/', async (ctx) => {
     const data = ctx.request.body
-    let queryres = await User.query({email: data.email})
-    if (queryres.length >= 1) {
+    let queryres = await User.queryEmail(data.email)
+    if (queryres) {
         ctx.body = {
             'code': 0,
             'data': {},
             'mesg': '该邮箱已经存在哦'
         }
     }else {
-        let saveres = await User.save(data)
-        console.log(saveres)
+        await User.save(data)
         ctx.body = {
             'code': 1,
             'data': {},
